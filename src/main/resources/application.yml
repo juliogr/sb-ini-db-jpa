@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/evaluacion
+    username: root
+    password: admin
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      idle-timeout: 30000
+      connection-timeout: 30000
+      max-lifetime: 1800000
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        connection:
+          url: ${spring.datasource.url}
+          username: ${spring.datasource.username}
+          password: ${spring.datasource.password}
+          autocommit: false
+          isolation: TRANSACTION_REPEATABLE_READ
+          pool_size: ${spring.datasource.hikari.maximum-pool-size}
+
+springdoc:
+  swagger-ui:
+    path: /hexagonal-swagger-ui

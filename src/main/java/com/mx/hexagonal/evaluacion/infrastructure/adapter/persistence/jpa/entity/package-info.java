@@ -1,0 +1,1 @@
+package com.mx.hexagonal.evaluacion.infrastructure.adapter.persistence.jpa.entity;
